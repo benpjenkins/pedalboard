@@ -5,8 +5,6 @@ const Play = styled.button`
   font-size: 18px;
   font-family: AppleGothic;
   border-radius: 15px;
-  ${"" /* height: 16px;
-  width: 80px; */}
   background-color: green;
   color: white;
   padding: 1em;
@@ -15,14 +13,15 @@ const Play = styled.button`
   &:hover {
     box-shadow: 0px 0px 10px black;
   }
+  &:focus {
+    outline: 0;
+  }
 `;
 
 const Stop = styled.button`
   font-size: 18px;
   font-family: AppleGothic;
   border-radius: 15px;
-  ${"" /* height: 16px;
-  width: 80px; */}
   background-color: Red;
   color: white;
   padding: 1em;
@@ -30,6 +29,9 @@ const Stop = styled.button`
   margin: 10px;
   &:hover {
     box-shadow: 0px 0px 10px black;
+  }
+  &:focus {
+    outline: 0;
   }
 `;
 

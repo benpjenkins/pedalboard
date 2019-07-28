@@ -1,9 +1,15 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import Tone from "tone";
 import mp3 from "./Content/feelings.mp3";
 import Player from "./Player";
+import Chorus from "./Chorus";
+import Overdrive from "./Overdrive";
+import styled from "styled-components";
+
+const Board = styled.div`
+  display: flex;
+`;
 
 class App extends Component {
   constructor() {
@@ -16,13 +22,15 @@ class App extends Component {
   handlePlayButton() {}
   render() {
     const player = new Tone.Player(mp3).toMaster();
-    // console.log("player :", player);
-    // //play as soon as the buffer is loaded
-    // player.autostart = true;
+    const overdrive = new Tone.Distortion(0.4).toMaster();
+    const chorus = new Tone.Chorus(1.5, 4.5, 0.7).toMaster();
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+          <Board>
+            <Chorus player={player} chorus={chorus} />
+            <Overdrive player={player} overdrive={overdrive} />
+          </Board>
           <Player player={player} />
         </header>
       </div>
